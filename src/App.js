@@ -1,8 +1,12 @@
+/** @jsxImportSource @emotion/react */
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
+import { css } from '@emotion/react';
 import LengthControl from './components/LengthControl';
 import Timer from './components/Timer';
 import beep from './audio/arcade-beep.wav';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause, faArrowRotateLeft } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
@@ -71,11 +75,15 @@ function App() {
     setSS('00');
     period.current = 'Session';
   }
+
+  const playStyle = css({
+    color: 'green!important'
+  })
   
   return (
     <div className="App">
+      <label className='app-title'>25 + 5 Clock</label>
       <div className='main'>
-        <label>25 + 5 Clock</label>
         <div className='setup-panel'>
           <LengthControl name='break' id='break-length' inc={increase} dec={decrease} value={breakMins} />
           <LengthControl name='session' id='session-length' inc={increase} dec={decrease} value={sessMins} />
@@ -84,8 +92,8 @@ function App() {
           <Timer minutes={MM} seconds={SS} isPeriod={period.current} />
           <audio id='beep' src={beep}></audio>
           <div class="panel">
-            <button id="start_stop" onClick={() => setToggle(!toggle)}>{">"} ||</button>
-            <button id="reset" onClick={reset}>reset</button>
+            <button id="start_stop" onClick={() => setToggle(!toggle)}  ><FontAwesomeIcon size='xl' className={!toggle ? 'play-btn-active' : ''} icon={faPlay} /><FontAwesomeIcon size='xl' className={toggle ? 'pause-btn-active' : ''} icon={faPause} /></button>
+            <button id="reset" onClick={reset}><FontAwesomeIcon size='xl' className='reset-btn' icon={faArrowRotateLeft} /></button>
             <p></p>
         </div>
         </div>

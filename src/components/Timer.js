@@ -10,7 +10,7 @@ export default function Timer({ minutes, seconds, isPeriod }) {
 
     const normalStyle = css({
         color: 'white'
-    })
+    });
 
     return (
         <div class="timer-body">

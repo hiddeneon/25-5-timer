@@ -4,7 +4,25 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: black;
+  background-color: #111119;
+}
+
+.App button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.App #start_stop {
+  margin-right: 10px;
+}
+
+.App #reset {
+  margin-left: 10px;
 }
 
 /* SET MAIN BODY STYLES */
@@ -13,26 +31,56 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 80vh;
+  height: fit-content;
   border: white 2px solid;
   color: white;
   width: fit-content;
+  padding: 3rem 0 1.75rem 0;
+  border-radius: 3px;
+  background-color: black;
 }
 
 /* SET PRECONDITIONS PANEL STYLES */
 .setup-panel {
-  width: 50vw;
+  width: 40vw;
   display: flex;
   justify-content: space-evenly;
 }
 
 .buttons {
   display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.buttons button {
+  background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  height: fit-content;
+  border-radius: 4px;
+}
+
+.decrease-btn:hover,
+.increase-btn:hover {
+  color: skyblue;
+}
+
+.decrease-btn:active {
+  color: crimson;
+}
+
+.increase-btn:active {
+  color: greenyellow;
 }
 
 .buttons p {
-  width: 2rem;
+  width: 2.75rem;
   text-align: center;
+  height: fit-content;
 }
 
 #break-length,
@@ -40,6 +88,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.length-value {
+  font-size: 1.5rem;;
+}
+
+.length-label {
+  font-size: 1.1rem;
+}
+
+.play-btn-active {
+  color: greenyellow;
+}
+
+.pause-btn-active {
+  color: orange;
+}
+
+.reset-btn:active {
+  color: greenyellow;
 }
 
 /* SET TIMER PANEL STYLES */
@@ -56,6 +124,24 @@
   align-items: center;
 }
 
+#time-left {
+  font-size: 4rem;
+}
+
+#timer-label {
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .panel {
   margin-top: 0.7rem;
 }
+
+.app-title {
+  color: black;
+  background-color: white;
+  font-size: 2rem;
+  padding: 0 10px;
+  border-radius: 7px 7px 0 0;
+}
+
