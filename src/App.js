@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
-import { css } from '@emotion/react';
 import LengthControl from './components/LengthControl';
 import Timer from './components/Timer';
 import beep from './audio/arcade-beep.wav';
@@ -22,9 +21,9 @@ function App() {
 
   // increases session and break minutes. Session minutes are also changed in Timer component.
   const increase = (mins, name) => {
-    if (mins < 60 && mins >= 0 && name === "break") {
+    if (mins < 60 && mins >= 0 && name === "Break") {
       setBreakMins(++mins);
-    } else if (mins < 60 && mins >= 0 && name === "session" && toggle) {
+    } else if (mins < 60 && mins >= 0 && name === "Session" && toggle) {
       let m = ++mins;
       setSessMins(m);
       setMM(/^[\d]$|^0[1-9]/.test(mins) ? `0${m}` : m);
@@ -33,9 +32,9 @@ function App() {
 
   // decreases session and break minutes. Session minutes are also changed in Timer component.
   const decrease = (mins, name) => {
-    if (mins <= 60 && mins > 1 && name === "break") {
+    if (mins <= 60 && mins > 1 && name === "Break") {
       setBreakMins(--mins);
-    } else if (mins <= 60 && mins > 1 && name === "session" && toggle) {
+    } else if (mins <= 60 && mins > 1 && name === "Session" && toggle) {
       let m = --mins;
       setSessMins(m);
       setMM(/^[\d]$|^0[1-9]/.test(mins) ? `0${m}` : m);
@@ -56,10 +55,12 @@ function App() {
       // assigns appropriate period label and plays a beep sound when certain conditions are met.
       if (MM === '00' && SS === '00' && period.current === 'Session') {
         period.current = 'Break';
-        document.getElementById('beep').play();
+        const song = document.getElementById('beep');
+        song.play();
       } else if (MM === '00' && SS === '00' && period.current === 'Break') {
         period.current = 'Session';
-        document.getElementById('beep').play();
+        const song = document.getElementById('beep');
+        song.play();
       }
       }, 1000);
     }
@@ -74,19 +75,18 @@ function App() {
     setMM(/^\d$/.test(initValSess) ? `0${initValSess}` : initValSess);
     setSS('00');
     period.current = 'Session';
+    const song = document.getElementById('beep');
+    song.pause();
+    song.currentTime = 0;
   }
 
-  const playStyle = css({
-    color: 'green!important'
-  })
-  
   return (
     <div className="App">
       <label className='app-title'>25 + 5 Clock</label>
       <div className='main'>
         <div className='setup-panel'>
-          <LengthControl name='break' id='break-length' inc={increase} dec={decrease} value={breakMins} />
-          <LengthControl name='session' id='session-length' inc={increase} dec={decrease} value={sessMins} />
+          <LengthControl name='Break' id='break' inc={increase} dec={decrease} value={breakMins} />
+          <LengthControl name='Session' id='session' inc={increase} dec={decrease} value={sessMins} />
         </div>
         <div className='timer-panel'>
           <Timer minutes={MM} seconds={SS} isPeriod={period.current} />

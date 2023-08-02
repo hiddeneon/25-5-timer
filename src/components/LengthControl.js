@@ -5,12 +5,12 @@ import { faSquareCaretUp } from '@fortawesome/free-solid-svg-icons';
 export default function LengthControl({ name, id, value, inc, dec }) {
 
     return (
-        <div id={id}>
-            <label className="length-label">{name} length</label>
+        <div id={id + '-label'}>
+            <label className="length-label">{name} Length</label>
             <div className="buttons">
-                <button onClick={() => dec(value, name)}><FontAwesomeIcon icon={faSquareCaretUp} size='2xl' rotation={180} className='decrease-btn' /></button>
-                <p className='length-value'>{value}</p>
-                <button onClick={() => inc(value, name) }><FontAwesomeIcon icon={faSquareCaretUp} size='2xl' className='increase-btn' /></button>
+                <button id={id + '-decrement'} onClick={() => dec(value, name)}><FontAwesomeIcon icon={faSquareCaretUp} size='2xl' rotation={180} className='decrease-btn' /></button>
+                <p id={id + '-length'} className='length-value'>{value}</p>
+                <button id={id + '-increment'} onClick={() => inc(value, name) }><FontAwesomeIcon icon={faSquareCaretUp} size='2xl' className='increase-btn' /></button>
             </div>
         </div>
     )
