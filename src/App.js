@@ -23,7 +23,7 @@ function App() {
     } else if (mins < 60 && mins >= 0 && name === "session" && toggle) {
       let m = ++mins;
       setSessMins(m);
-      setMM(/^[\d]$|^0[1-9]|10/.test(mins) ? `0${m}` : m);
+      setMM(/^[\d]$|^0[1-9]/.test(mins) ? `0${m}` : m);
     }
   }
 
@@ -34,7 +34,7 @@ function App() {
     } else if (mins <= 60 && mins > 1 && name === "session" && toggle) {
       let m = --mins;
       setSessMins(m);
-      setMM(/^[\d]$|^0[1-9]|10/.test(mins) ? `0${m}` : m);
+      setMM(/^[\d]$|^0[1-9]/.test(mins) ? `0${m}` : m);
     }
   }
 
@@ -57,7 +57,7 @@ function App() {
         period.current = 'Session';
         document.getElementById('beep').play();
       }
-      }, 50);
+      }, 1000);
     }
 
     return () => clearTimeout(timer);
