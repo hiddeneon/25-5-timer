@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/25-5-timer/static/css/main.389c5059.css",
+    "main.js": "/25-5-timer/static/js/main.8c76e8dd.js",
+    "static/js/787.a274a84a.chunk.js": "/25-5-timer/static/js/787.a274a84a.chunk.js",
+    "static/media/arcade-beep.wav": "/25-5-timer/static/media/arcade-beep.502ff83e352f60bf565c.wav",
+    "index.html": "/25-5-timer/index.html",
+    "main.389c5059.css.map": "/25-5-timer/static/css/main.389c5059.css.map",
+    "main.8c76e8dd.js.map": "/25-5-timer/static/js/main.8c76e8dd.js.map",
+    "787.a274a84a.chunk.js.map": "/25-5-timer/static/js/787.a274a84a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.389c5059.css",
+    "static/js/main.8c76e8dd.js"
+  ]
+}
